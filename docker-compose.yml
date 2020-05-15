@@ -1,0 +1,33 @@
+version: '3'
+services:
+  redis:
+    image: 'redis:5.0.5'
+    # command: redis-server --requirepass redispass
+
+  postgres:
+    image: postgres:9.6
+    environment:
+        - POSTGRES_USER=airflow
+        - POSTGRES_PASSWORD=airflow
+        - POSTGRES_DB=airflow
+
+  airflow_web:
+    image: aktechthoughts/airflow_web
+    build: .    
+    restart: always
+    depends_on:
+        - postgres
+        - redis
+    environment:
+     - LOAD_EX=n
+     - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+     - EXECUTOR=Celery
+     - POSTGRES_USER=airflow
+     - POSTGRES_PASSWORD=airflow
+     - POSTGRES_DB=airflow
+     - REDIS_PASSWORD=redispass        
+
+    ports: 
+     - 8080:8080
+    volumes:
+     - /home/ubuntu/airflow:/usr/local/airflow
