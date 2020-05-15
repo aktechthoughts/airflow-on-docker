@@ -12,9 +12,9 @@ RUN airflow db init \
        -p airflow \       
        -e abhishek_ku@yahoo.com \
        -f abhishek \
-       -l kumar \
-    && airflow webserver -p 8888 
-           
+       -l kumar 
+
+CMD ["airflow","webserver","-p 8888"]           
 
 
 
