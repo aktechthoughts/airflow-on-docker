@@ -28,6 +28,6 @@ services:
     #  - REDIS_PASSWORD=redispass        
 
     ports: 
-     - 8888:8888
+     - "8888:8888"
     volumes:
      - /home/abhishek/airflow:/usr/local/airflow
