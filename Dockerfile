@@ -4,6 +4,8 @@
 ##############################################################################################
 FROM aktechthoughts/airflow_web:1
 
+EXPOSE 8888
+
 RUN airflow db init \
     && airflow users create -r Admin \
        -u airflow \
