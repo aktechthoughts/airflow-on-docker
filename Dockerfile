@@ -184,6 +184,7 @@ ADD "${CONSTRAINT_REQUIREMENTS}" /requirements.txt
 
 ENV PATH=${PATH}:/root/.local/bin
 
+RUN pip install --upgrade pip
 RUN pip install --user "${AIRFLOW_INSTALL_SOURCES}[${AIRFLOW_EXTRAS}]${AIRFLOW_INSTALL_VERSION}" \
     --constraint /requirements.txt && \
     find /root/.local/ -name '*.pyc' -print0 | xargs -0 rm -r && \
