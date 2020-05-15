@@ -7,6 +7,6 @@ docker run  --name=airflow_web -d \
 	-p 8888:8888 \
 	--log-opt max-size=10m \
 	--log-opt max-file=5 \
-		aktechthoughts/airflow_web:latest \
-		webserver -p 8888
+		aktechthoughts/airflow_web:latest 
+
 
