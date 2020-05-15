@@ -11,24 +11,24 @@ services:
         - POSTGRES_PASSWORD=airflow
         - POSTGRES_DB=airflow
 
-  airflow_web:
-    image: aktechthoughts/airflow_web
-    build: .    
-    restart: always
-    depends_on:
-        - postgres
-        - redis
-    environment:
-     - LOAD_EX=n
-     - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
-     - EXECUTOR=Celery
-     - POSTGRES_USER=airflow
-     - POSTGRES_PASSWORD=airflow
-     - POSTGRES_DB=airflow
-     - REDIS_PASSWORD=redispass        
+  # airflow_web:
+  #   image: aktechthoughts/airflow_web
+  #   build: .    
+  #   restart: always
+  #   depends_on:
+  #       - postgres
+  #       - redis
+  #   environment:
+  #    - LOAD_EX=n
+  #    - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+  #    - EXECUTOR=Celery
+  #    - POSTGRES_USER=airflow
+  #    - POSTGRES_PASSWORD=airflow
+  #    - POSTGRES_DB=airflow
+  #    - REDIS_PASSWORD=redispass        
 
-    ports: 
-     - 8888:8888
-    command: airflow webserver -p 8888
-    volumes:
-     - /home/ubuntu/airflow:/usr/local/airflow
+  #   ports: 
+  #    - 8888:8888
+  #   command: airflow webserver -p 8888
+  #   volumes:
+  #    - /home/ubuntu/airflow:/usr/local/airflow
