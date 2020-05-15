@@ -29,5 +29,6 @@ services:
 
     ports: 
      - 8888:8888
+    command: webserver -p 8888
     volumes:
      - /home/ubuntu/airflow:/usr/local/airflow
