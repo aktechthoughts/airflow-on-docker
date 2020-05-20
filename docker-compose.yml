@@ -31,5 +31,5 @@ services:
     ports: 
      - "8888:8888"
     volumes:
-     - /home/ubuntu/airflow/dag:/usr/local/airflow/dag
-     - /home/ubuntu/airflow/db:/usr/local/airflow/db
+     - /home/abhishek/projects/docker/airflow-on-docker/dag:/usr/local/airflow/dag
+     
