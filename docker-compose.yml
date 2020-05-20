@@ -27,7 +27,7 @@ services:
     #  - POSTGRES_PASSWORD=airflow
     #  - POSTGRES_DB=airflow
     #  - REDIS_PASSWORD=redispass        
-
+  
     ports: 
      - "8888:8888"
     volumes:

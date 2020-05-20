@@ -6,10 +6,21 @@ FROM aktechthoughts/airflow_web:1
 
 EXPOSE 8888
 
-COPY start_airflow.sh /opt/airflow
-
-CMD ["sh","/opt/airflow/start_airflow.sh"]           
 
 
+RUN airflow db init 
 
+RUN airflow users create -r Admin \
+       -u airflow \
+       -p airflow \
+       -e abhishek_ku@yahoo.com \
+       -f abhishek \
+       -l kumar 
+
+COPY --chown=airflow:airflow  start_scheduler.sh /opt/airflow/
+#RUN ["/bin/sh", "-c", "/opt/airflow/airflow_schedule.sh"]
+#RUN ["airflow","scheduler","-D"]
+#RUN ["/bin/sh", "-c", "airflow scheduler > /opt/airflow/logs/scheduler/latest/scheduler_log.log &"]
+
+CMD ["airflow","webserver","-p 8888"]
 
