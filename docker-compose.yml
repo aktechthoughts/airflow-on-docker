@@ -8,5 +8,5 @@ services:
     ports: 
      - "8888:8888"
     volumes:
-     - /home/abhishek/projects/docker/airflow-on-docker/dag:/usr/local/airflow/dag
+     - /home/abhishek/projects/docker/airflow-on-docker/dag:/opt/airflow/dags
 
