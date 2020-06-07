@@ -5,8 +5,11 @@ services:
     image: aktechthoughts/airflow_web
     build: .    
     restart: always
+    environment: 
+     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     ports: 
      - "8888:8888"
     volumes:
-     - /home/abhishek/projects/docker/airflow-on-docker/dag:/opt/airflow/dags
-
+     - /home/abhishek/PycharmProjects/airflow-examples/dags:/opt/airflow/dags
+     - /home/abhishek/PycharmProjects/input:/tmp/input

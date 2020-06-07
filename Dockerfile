@@ -18,7 +18,12 @@ RUN airflow users create -r Admin \
        -l kumar 
 
 COPY --chown=airflow:airflow  start_scheduler.sh /opt/airflow/
-#RUN ["/bin/sh", "-c", "/opt/airflow/airflow_schedule.sh"]
+COPY --chown=airflow:airflow emr_config.json /opt/airflow/
+RUN mkdir /tmp/input
+
+RUN ["airflow","variables","import","emr_config.json"]
+
+#RUN ["/bin/sh", "-c", "/opt/airflow/start_scheduler.sh"]
 #RUN ["airflow","scheduler","-D"]
 #RUN ["/bin/sh", "-c", "airflow scheduler > /opt/airflow/logs/scheduler/latest/scheduler_log.log &"]
 
