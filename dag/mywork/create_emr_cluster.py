@@ -24,6 +24,8 @@ def create_cluster():
             'TerminationProtected': bool(emr_config['termination-protected']),
             'Ec2SubnetId': emr_config['vpc-subnet-id'],
             'Ec2KeyName': emr_config['vpc-ec2-key'],
+            'EmrManagedMasterSecurityGroup': emr_config['emr-master-sg'],
+	    'EmrManagedSlaveSecurityGroup': emr_config['emr-slave-sg'],
         },
         VisibleToAllUsers=True,
         JobFlowRole=emr_config['job-role'],

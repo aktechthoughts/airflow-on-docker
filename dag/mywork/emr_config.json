@@ -12,5 +12,7 @@
         "termination-protected": "False",
         "vpc-ec2-key": "abhishek-vpc",
         "vpc-subnet-id": "subnet-035a10658fcfd9e29"
+        "emr-master-sg": "sg-0c71f7c83535bdf13",
+        "emr-slave-sg": "sg-0c71f7c83535bdf13",
     }
 }
