@@ -11,5 +11,5 @@ services:
     ports: 
      - "8888:8888"
     volumes:
-     - /home/abhishek/PycharmProjects/airflow-examples/dags:/opt/airflow/dags
-     - /home/abhishek/PycharmProjects/input:/tmp/input
+     - ./dag:/opt/airflow/dags
+     - ./input:/tmp/input
