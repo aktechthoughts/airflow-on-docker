@@ -21,7 +21,7 @@ COPY --chown=airflow:airflow  start_scheduler.sh /opt/airflow/
 COPY --chown=airflow:airflow emr_config.json /opt/airflow/
 RUN mkdir /tmp/input
 
-RUN ["airflow","variables","import","dags/mywork/emr_config.json"]
+RUN ["airflow","variables","import","emr_config.json"]
 
 #RUN ["/bin/sh", "-c", "/opt/airflow/start_scheduler.sh"]
 #RUN ["airflow","scheduler","-D"]
